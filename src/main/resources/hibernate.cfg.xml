@@ -30,8 +30,8 @@
 
 
         <!-- List of XML mapping files -->
-        <mapping class="lt.codeacademy.entities.IslaiduIrasas" />
+<!--        <mapping class="lt.codeacademy.entities.IslaiduIrasas"/>-->
         <mapping class="lt.codeacademy.entities.PajamuIrasas"/>
-
+        <mapping class="lt.codeacademy.entities.Sort"/>
     </session-factory>
 </hibernate-configuration>

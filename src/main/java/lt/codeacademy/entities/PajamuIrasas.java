@@ -8,13 +8,9 @@ public class PajamuIrasas{
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column(name = "id")
-    private Long id;
-
-    @ManyToOne
-    @JoinColumn(name = "type_id")
-    private Sort sort;
+    private int id;
 
     @Column(name = "suma")
     private int suma;
@@ -31,6 +27,10 @@ public class PajamuIrasas{
     @Column(name = "info")
     private String info;
 
+    @ManyToOne
+    @JoinColumn(name = "operation_id")
+    private Sort sort;
+
     public PajamuIrasas(int suma, int indeksas, String arIbanka, String info) {
         this.suma = suma;
         this.indeksas = indeksas;
@@ -39,15 +39,31 @@ public class PajamuIrasas{
         this.info = info;
     }
 
+    public PajamuIrasas(int suma, int indeksas, LocalDateTime data, String arIbanka, String info) {
+        this.suma = suma;
+        this.indeksas = indeksas;
+        this.data = data;
+        this.arIbanka = arIbanka;
+        this.info = info;
+    }
+
     public PajamuIrasas() {
 
     }
 
-    public Long getId() {
+    public Sort getSort() {
+        return sort;
+    }
+
+    public void setSort(Sort sort) {
+        this.sort = sort;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

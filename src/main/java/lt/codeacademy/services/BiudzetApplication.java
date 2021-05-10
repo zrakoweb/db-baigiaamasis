@@ -1,10 +1,11 @@
 package lt.codeacademy.services;
 
 import lt.codeacademy.ConsoleMenu;
+import lt.codeacademy.HibernateConfiguration;
 import lt.codeacademy.entities.Menu;
-import lt.codeacademy.entities.Biudzetas;
 import lt.codeacademy.entities.IslaiduIrasas;
 import lt.codeacademy.entities.PajamuIrasas;
+import org.hibernate.Session;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class BiudzetApplication {
     }
 
     public void run() throws IOException {
+        PajamuIrasasService pajamuIrasasService = new PajamuIrasasService();
 
         String value = "";
 
@@ -41,8 +43,14 @@ public class BiudzetApplication {
                     System.out.println("iveskite info:");
                     String info = sc.nextLine();
                     PajamuIrasas irasas = new PajamuIrasas(suma, indeksas, arIbanka, info);
+
                     biudzetas.pridetiPajamuIsrasa(irasas);
                     System.out.println("Pajamos pridetos");
+                    HibernateConfiguration.buildSessionFactory();
+                    pajamuIrasasService.save(irasas);
+                    HibernateConfiguration.closeSessionFactory();
+
+
                     break;
                 case "2":
                     System.out.println("iveskite suma:");
@@ -93,7 +101,7 @@ public class BiudzetApplication {
 //                    int id = sc.nextInt();
 //                    sc.nextLine();
 //                    for (PajamuIrasas pajamuIrasas: biudzetas.gautiPajamuIrasa()) {
-//                        if (biudzetas.getId() == id) {
+//                        if (biudzetas() == id) {
 //                            biudzetas.gautiPajamuIrasa().remove(id);
 //                        }
 //                    }

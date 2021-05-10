@@ -1,4 +1,4 @@
-package lt.codeacademy.entities;
+package lt.codeacademy.services;
 
 import lt.codeacademy.entities.IslaiduIrasas;
 import lt.codeacademy.entities.PajamuIrasas;
