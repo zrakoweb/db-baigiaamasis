@@ -5,6 +5,7 @@ import lt.codeacademy.HibernateConfiguration;
 import lt.codeacademy.entities.Menu;
 import lt.codeacademy.entities.IslaiduIrasas;
 import lt.codeacademy.entities.PajamuIrasas;
+import lt.codeacademy.entities.Sort;
 import org.hibernate.Session;
 
 import java.io.IOException;
@@ -42,7 +43,7 @@ public class BiudzetApplication {
                     String arIbanka = sc.nextLine();
                     System.out.println("iveskite info:");
                     String info = sc.nextLine();
-                    PajamuIrasas irasas = new PajamuIrasas(suma, indeksas, arIbanka, info);
+                    PajamuIrasas irasas = new PajamuIrasas(suma, new Sort(), arIbanka, info);
 
                     biudzetas.pridetiPajamuIsrasa(irasas);
                     System.out.println("Pajamos pridetos");
@@ -80,13 +81,13 @@ public class BiudzetApplication {
                     System.out.println(biudzetas.gautiBalansa());
                     break;
                 case "6":
-                    ArrayList<PajamuIrasas> pajamos = biudzetas.gautiPajamuIrasa();
-                    for (PajamuIrasas pajamuIrasas : pajamos) {
-                        System.out.println(String.format("\nPajamu suma: %s \nIndeksas: %x \nData: %s \nAr i banka vesta: %s \nPapildoma info: %s",
-                                pajamuIrasas.getSuma(), pajamuIrasas.getIndeksas(), pajamuIrasas.getData(), pajamuIrasas.getArIbanka(), pajamuIrasas.getInfo()));
-                        System.out.println("---------------------------------");
-                    }
-                    break;
+//                    ArrayList<PajamuIrasas> pajamos = biudzetas.gautiPajamuIrasa();
+//                    for (PajamuIrasas pajamuIrasas : pajamos) {
+//                        System.out.println(String.format("\nPajamu suma: %s \nIndeksas: %x \nData: %s \nAr i banka vesta: %s \nPapildoma info: %s",
+//                                pajamuIrasas.getSuma(), pajamuIrasas.getIndeksas(), pajamuIrasas.getData(), pajamuIrasas.getArIbanka(), pajamuIrasas.getInfo()));
+//                        System.out.println("---------------------------------");
+//                    }
+//                    break;
                 case "7":
                     ArrayList<IslaiduIrasas> islaidos = biudzetas.gautiIslaiduIrasa();
                     for (IslaiduIrasas islaiduIrasas : islaidos) {

@@ -15,8 +15,8 @@ public class PajamuIrasas{
     @Column(name = "suma")
     private int suma;
 
-    @Column(name = "operation_id")
-    private int indeksas;
+//    @Column(name = "operation_id")
+//    private int indeksas;
 
     @Column(name = "date")
     private LocalDateTime data;
@@ -28,20 +28,20 @@ public class PajamuIrasas{
     private String info;
 
     @ManyToOne
-    @JoinColumn(name = "operation_id")
+    @JoinColumn(name = "sort_id")
     private Sort sort;
 
-    public PajamuIrasas(int suma, int indeksas, String arIbanka, String info) {
+    public PajamuIrasas(int suma, Sort sort, String arIbanka, String info) {
         this.suma = suma;
-        this.indeksas = indeksas;
+        this.sort = sort;
         this.data = LocalDateTime.now();
         this.arIbanka = arIbanka;
         this.info = info;
     }
 
-    public PajamuIrasas(int suma, int indeksas, LocalDateTime data, String arIbanka, String info) {
+    public PajamuIrasas(int suma, Sort sort, LocalDateTime data, String arIbanka, String info) {
         this.suma = suma;
-        this.indeksas = indeksas;
+        this.sort = sort;
         this.data = data;
         this.arIbanka = arIbanka;
         this.info = info;
@@ -83,13 +83,6 @@ public class PajamuIrasas{
         this.suma = suma;
     }
 
-    public int getIndeksas() {
-        return indeksas;
-    }
-
-    public void setIndeksas(int indeksas) {
-        this.indeksas = indeksas;
-    }
 
     public String getArIbanka() {
         return arIbanka;

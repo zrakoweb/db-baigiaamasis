@@ -1,6 +1,7 @@
 package lt.codeacademy;
 
 import lt.codeacademy.entities.PajamuIrasas;
+import lt.codeacademy.entities.Sort;
 import lt.codeacademy.services.BiudzetApplication;
 import lt.codeacademy.services.PajamuIrasasService;
 import org.hibernate.Session;
@@ -19,7 +20,7 @@ public class App {
 //       PajamuIrasas pajamuIrasas = session.get(PajamuIrasas.class, 1);
 //        System.out.println(pajamuIrasas.getSuma());
 
-        PajamuIrasas pajamuIrasas1 = new PajamuIrasas(250, 2, LocalDateTime.now(), "aa", "bb");
+        PajamuIrasas pajamuIrasas1 = new PajamuIrasas(250, new Sort(), "aa", "bb");
         PajamuIrasasService pajamuIrasasService = new PajamuIrasasService();
         pajamuIrasasService.save(pajamuIrasas1);
         HibernateConfiguration.closeSessionFactory();

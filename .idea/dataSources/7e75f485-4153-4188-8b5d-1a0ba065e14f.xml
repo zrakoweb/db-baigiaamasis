@@ -812,10 +812,10 @@ false Zulu
 13158||-9223372036854775808|U|G
 13158||10|U|G</Grants>
       <Owner>baigiamasis</Owner>
-      <IntrospectionStateNumber>759</IntrospectionStateNumber>
+      <IntrospectionStateNumber>813</IntrospectionStateNumber>
       <Current>1</Current>
-      <Relations>sequence|table|57383|57385|1
-sequence|table|57391|57393|1
+      <Relations>sequence|table|65691|65693|1
+sequence|table|65699|65701|1
 </Relations>
     </database>
     <database id="3" parent="1" name="db_jdbc">
@@ -930,7 +930,7 @@ sequence|table|57391|57393|1
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>760</IntrospectionStateNumber>
+      <IntrospectionStateNumber>814</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="26" parent="2" name="plpgsql">
@@ -1031,72 +1031,71 @@ sequence|table|57391|57393|1
       <Type>index</Type>
     </access-method>
     <sequence id="38" parent="25" name="operation_id_seq">
-      <ObjectId>57383</ObjectId>
+      <ObjectId>65699</ObjectId>
       <Owner>baigiamasis</Owner>
-      <StateNumber>748</StateNumber>
+      <StateNumber>807</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
     <sequence id="39" parent="25" name="sort_id_seq">
-      <ObjectId>57391</ObjectId>
+      <ObjectId>65691</ObjectId>
       <Owner>baigiamasis</Owner>
-      <StateNumber>748</StateNumber>
+      <StateNumber>806</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
     <table id="40" parent="25" name="operation">
-      <ObjectId>57385</ObjectId>
+      <ObjectId>65701</ObjectId>
       <Owner>baigiamasis</Owner>
-      <StateNumber>748</StateNumber>
+      <StateNumber>807</StateNumber>
     </table>
     <table id="41" parent="25" name="sort">
-      <ObjectId>57393</ObjectId>
+      <ObjectId>65693</ObjectId>
       <Owner>baigiamasis</Owner>
-      <StateNumber>748</StateNumber>
+      <StateNumber>807</StateNumber>
     </table>
     <column id="42" parent="40" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>639</StateNumber>
+      <StateNumber>807</StateNumber>
       <DefaultExpression>nextval(&apos;operation_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
     <column id="43" parent="40" name="suma">
       <Position>2</Position>
-      <DataType>integer|0s</DataType>
+      <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>639</StateNumber>
-      <TypeId>23</TypeId>
+      <StateNumber>807</StateNumber>
+      <TypeId>20</TypeId>
     </column>
-    <column id="44" parent="40" name="operation_id">
+    <column id="44" parent="40" name="sort_id">
       <Position>3</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>639</StateNumber>
-      <TypeId>23</TypeId>
+      <DataType>bigint|0s</DataType>
+      <StateNumber>807</StateNumber>
+      <TypeId>20</TypeId>
     </column>
     <column id="45" parent="40" name="date">
       <Position>4</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>639</StateNumber>
+      <StateNumber>807</StateNumber>
       <TypeId>1082</TypeId>
     </column>
     <column id="46" parent="40" name="method">
       <Position>5</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>639</StateNumber>
+      <StateNumber>807</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="47" parent="40" name="info">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>639</StateNumber>
+      <StateNumber>807</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="48" parent="40" name="operation_pkey">
-      <ObjectId>57389</ObjectId>
-      <StateNumber>748</StateNumber>
+      <ObjectId>65705</ObjectId>
+      <StateNumber>807</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1104,56 +1103,48 @@ sequence|table|57391|57393|1
       <CollationIds>0</CollationIds>
       <ClassIds>3124</ClassIds>
     </index>
-    <index id="49" parent="40" name="fki_operation_fk">
-      <ObjectId>57404</ObjectId>
-      <StateNumber>748</StateNumber>
-      <ColNames>operation_id</ColNames>
-      <AccessMethodId>403</AccessMethodId>
-      <CollationIds>0</CollationIds>
-      <ClassIds>1978</ClassIds>
-    </index>
-    <key id="50" parent="40" name="operation_pkey">
-      <ObjectId>57390</ObjectId>
-      <StateNumber>639</StateNumber>
+    <key id="49" parent="40" name="operation_pkey">
+      <ObjectId>65706</ObjectId>
+      <StateNumber>807</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>operation_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="51" parent="40" name="operation_fk">
-      <ObjectId>57399</ObjectId>
-      <StateNumber>642</StateNumber>
-      <ColNames>operation_id</ColNames>
-      <RefTableId>57393</RefTableId>
+    <foreign-key id="50" parent="40" name="operation_sort_id_fkey">
+      <ObjectId>65707</ObjectId>
+      <StateNumber>807</StateNumber>
+      <ColNames>sort_id</ColNames>
+      <RefTableId>65693</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>sort</RefTableName>
       <RefKeyName>sort_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="52" parent="41" name="id">
+    <column id="51" parent="41" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>639</StateNumber>
+      <StateNumber>806</StateNumber>
       <DefaultExpression>nextval(&apos;sort_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="53" parent="41" name="type_id">
+    <column id="52" parent="41" name="type_id">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>639</StateNumber>
+      <StateNumber>806</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="54" parent="41" name="type">
+    <column id="53" parent="41" name="type">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>639</StateNumber>
+      <StateNumber>806</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="55" parent="41" name="sort_pkey">
-      <ObjectId>57397</ObjectId>
-      <StateNumber>748</StateNumber>
+    <index id="54" parent="41" name="sort_pkey">
+      <ObjectId>65697</ObjectId>
+      <StateNumber>806</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1161,9 +1152,9 @@ sequence|table|57391|57393|1
       <CollationIds>0</CollationIds>
       <ClassIds>3124</ClassIds>
     </index>
-    <key id="56" parent="41" name="sort_pkey">
-      <ObjectId>57398</ObjectId>
-      <StateNumber>639</StateNumber>
+    <key id="55" parent="41" name="sort_pkey">
+      <ObjectId>65698</ObjectId>
+      <StateNumber>806</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sort_pkey</UnderlyingIndexName>
