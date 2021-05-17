@@ -8,7 +8,7 @@ public class PajamuIrasas{
 
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
@@ -39,13 +39,6 @@ public class PajamuIrasas{
         this.info = info;
     }
 
-    public PajamuIrasas(int suma, Sort sort, LocalDateTime data, String arIbanka, String info) {
-        this.suma = suma;
-        this.sort = sort;
-        this.data = data;
-        this.arIbanka = arIbanka;
-        this.info = info;
-    }
 
     public PajamuIrasas() {
 

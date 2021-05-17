@@ -1,5 +1,6 @@
 package lt.codeacademy;
 
+import lt.codeacademy.entities.IslaiduIrasas;
 import lt.codeacademy.entities.PajamuIrasas;
 import lt.codeacademy.entities.Sort;
 import lt.codeacademy.services.BiudzetApplication;
@@ -14,15 +15,20 @@ public class App {
 
 //        Session session = HibernateConfiguration.openSession().getSession();
 
-//        new BiudzetApplication().run();
 
         HibernateConfiguration.buildSessionFactory();
+
+
+        new BiudzetApplication().run();
 //       PajamuIrasas pajamuIrasas = session.get(PajamuIrasas.class, 1);
 //        System.out.println(pajamuIrasas.getSuma());
+//        Sort sort = new Sort(1L);
+////        PajamuIrasas pajamuIrasas1 = new PajamuIrasas(250, sort, "aa", "bb");
+//        PajamuIrasasService pajamuIrasasService = new PajamuIrasasService();
+//        pajamuIrasasService.delete(3);
+//        pajamuIrasasService.save(pajamuIrasas1);
 
-        PajamuIrasas pajamuIrasas1 = new PajamuIrasas(250, new Sort(), "aa", "bb");
-        PajamuIrasasService pajamuIrasasService = new PajamuIrasasService();
-        pajamuIrasasService.save(pajamuIrasas1);
+
         HibernateConfiguration.closeSessionFactory();
 
     }

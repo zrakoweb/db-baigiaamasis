@@ -1,8 +1,13 @@
 package lt.codeacademy.entities;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+
 public class IslaiduIrasas {
+
+
+    private int id;
     private int suma;
     private int indeksas;
     private LocalDateTime data;
@@ -16,6 +21,10 @@ public class IslaiduIrasas {
         this.data = LocalDateTime.now();
         this.budas = budas;
         this.kortele = kortele;
+    }
+
+    public IslaiduIrasas() {
+
     }
 
     public void setData(LocalDateTime data) {
@@ -62,6 +71,7 @@ public class IslaiduIrasas {
         return "IslaiduIrasas{" +
                 "suma=" + suma +
                 ", indeksas=" + indeksas +
+                ", data=" + data +
                 ", budas='" + budas + '\'' +
                 ", kortele='" + kortele + '\'' +
                 '}';
